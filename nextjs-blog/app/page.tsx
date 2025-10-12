@@ -1,4 +1,7 @@
-import { client } from "./lib/sanity"
+import { client, urlFor } from "./lib/sanity";
+import { simpleBlogCard } from "../app/lib/interface";
+import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 async function fetchContent() {
   const query =  `
@@ -6,21 +9,29 @@ async function fetchContent() {
   title,
   smallDescription,
   "currentSlug": slug.current,
+  titleImage
   }`
 
   const data = await client.fetch(query)
-
   return data;
 }
 
 export default async function Home() {
-  const data = await fetchContent();
+  const data: simpleBlogCard[] = await fetchContent();
 
-  console.log("DATA =>", data)
   return (
     <>
-      <div>
-        <h1>Hello from the Index Page</h1>
+      <div className="grid grid-cols-1 lg:grid-cols-4 mt-5">
+        {data.map((post, idx) => (
+          <Card key={idx}>
+            <Image 
+              height={500} 
+              width={500} 
+              src={urlFor(post.titleImage).url()} 
+              alt="image" 
+            />
+          </Card>
+        ))}
       </div>
     </>
   );
