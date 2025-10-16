@@ -1,4 +1,6 @@
-import { client } from "../../lib/sanity";
+import { client, urlFor } from "../../lib/sanity";
+import { fullBlog } from "../../lib/interface";
+import Image from "next/image";
 
 async function getData(slug: string){
     const query = `
@@ -14,12 +16,17 @@ async function getData(slug: string){
 }
 
 export default async function BlogArticle({params}: {params: {slug: string}}) {
-    const data = await getData(params.slug);
+    const data: fullBlog = await getData(params.slug);
 
-    console.log("DATA => ", data)
     return (
         <>
-            <h1>{params.slug}</h1>
+            <div className="mt-8">
+                <h1>
+                    <span className="block text-base text-center text-primary font-semibold tracking-wide uppercase">Eric Doering - blog</span>
+                    <span className="mt-4 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">{data.title}</span>
+                </h1>
+                <Image priority className="rounded-lg mt-8 mx-auto transform rotate-90 border" height={300} width={300} src={urlFor(data.titleImage).url()} alt="title-image" />
+            </div>
         </>
     )
 }
