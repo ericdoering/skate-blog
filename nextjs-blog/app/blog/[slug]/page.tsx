@@ -16,8 +16,9 @@ async function getData(slug: string){
         return data
 }
 
-export default async function BlogArticle({params}: {params: {slug: string}}) {
-    const data: fullBlog = await getData(params.slug);
+export default async function BlogArticle({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const data: fullBlog = await getData(slug);
 
     return (
         <>
@@ -28,7 +29,7 @@ export default async function BlogArticle({params}: {params: {slug: string}}) {
                 </h1>
                 <Image priority className="rounded-lg mt-8 mx-auto transform rotate-90 border" height={300} width={300} src={urlFor(data.titleImage).url()} alt="title-image" />
             </div>
-            <div className="mt-16 prose prose-xl">
+            <div className="mt-16 prose prose-blue prose-xl">
                 <PortableText value={data.content} />
             </div>
         </>
