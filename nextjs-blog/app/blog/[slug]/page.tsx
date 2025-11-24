@@ -24,7 +24,6 @@ export default async function BlogArticle({ params }: { params: Promise<{ slug: 
         <>
             <div className="mt-8">
                 <h1>
-                    <span className="block text-base text-center text-primary font-semibold tracking-wide uppercase">Eric Doering - blog</span>
                     <span className="mt-4 block text-3xl text-center leading-8 font-bold tracking-tight sm:text-4xl">{data.title}</span>
                 </h1>
                 <Image priority className="rounded-lg mt-8 mx-auto transform rotate-90 border" height={300} width={300} src={urlFor(data.titleImage).url()} alt="title-image" />
