@@ -4,6 +4,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+body {
+  font-family: var(--font-tomorrow), sans-serif;
+  @apply bg-background text-foreground;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -43,6 +48,7 @@
 }
 
 :root {
+  font-family: var(--font-montserrat), sans-serif;
   --radius: 0.65rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
