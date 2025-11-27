@@ -11,8 +11,6 @@ export default async function Home() {
 
   const videoUrl = fileUrl(data?.heroVideo);
 
-  console.log("Video URL =>", videoUrl);
-
   return (
     <div className="grid grid-cols-1 mt-5 gap-5">
       <div className="bg-primary w-full h-15 rounded-xl shadow-lg"></div>
