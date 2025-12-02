@@ -10,7 +10,25 @@ export default defineConfig({
   projectId: 'xidypni3',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool({
+    structure: (S) =>
+      S.list()
+        .title('Content')
+        .items([
+          S.listItem()
+            .title('Shop Items')
+            .schemaType('shopItem')
+            .child(S.documentTypeList('shopItem')),
+
+          S.divider(),
+          ...S.documentTypeListItems().filter(
+            (item) => item.getId() !== 'shopItem'
+          ),
+        ]),
+    }),
+    visionTool(),
+  ],
 
   schema: {
     types: schemaTypes,
