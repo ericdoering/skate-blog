@@ -4,6 +4,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import shopImage from "../../public/shopImage.png";
+import shopImage2 from "../../public/shopImage2.png";
+import shopImage3 from "../../public/shopImage3.png";
 
 async function fetchContent() {
   const query = `
@@ -24,6 +27,35 @@ export default async function Home() {
   return (
     <>
       <div className="mt-5 space-y-5 flex flex-col items-center">
+        <Card className="w-full max-w-xl flex flex-col overflow-hidden shadow-md">
+          <CardContent className="flex flex-row items-center justify-between">
+            <Image
+              height={100}
+              width={100}
+              src={shopImage}
+              alt="shop image 1"
+              className="rounded"
+            />
+            <Image
+              height={100}
+              width={100}
+              src={shopImage2}
+              alt="shop image 2"
+              className="rounded"
+            />
+            <Image
+              height={100}
+              width={100}
+              src={shopImage3}
+              alt="shop image 3"
+              className="rounded"
+            />
+            <Link href="/shop">
+              <Button>Visit Store</Button>
+            </Link>
+          </CardContent>
+        </Card>
+
         {data.map((post, idx) => (
           <Card
             key={idx}
