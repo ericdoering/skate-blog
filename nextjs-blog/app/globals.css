@@ -126,3 +126,25 @@ body {
   }
 }
 
+
+@keyframes levitateOne {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.20); }
+  100% { transform: scale(1); }
+}
+
+.levitateOne {
+  animation: levitateOne 5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+@keyframes levitateTwo {
+  0% { transform: scale(1.20); }
+  50% { transform: scale(1); }
+  100% { transform: scale(1.20); }
+}
+
+.levitateTwo {
+  animation: levitateTwo 5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}

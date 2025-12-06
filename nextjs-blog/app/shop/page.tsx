@@ -1,19 +1,24 @@
+import { Button } from "@/components/ui/button";
 import { client } from "../../app/lib/sanity";
-import { fileUrl } from "@/lib/urlForFile";
+import Link from "next/link";
 
 export default async function Shop() {
-  const data = await client.fetch(`
-    *[_type == "landingPage"][0]{
-      heroVideo
+  const items = await client.fetch(`
+    *[_type == "shopItem"]{
+      name,
+      _id
     }
   `);
 
-  const videoUrl = fileUrl(data?.heroVideo);
-
   return (
-    <div className="grid grid-cols-1 mt-5 gap-5">
-      <div className="bg-primary w-full h-15 rounded-xl shadow-lg"></div>
-      <div className="bg-primary w-full h-15 rounded-xl shadow-lg"></div>
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-4 mt-5">
+      {items.map((item) => (
+        <Link key={item._id} href={`/shop/${item._id}`}>
+          <Button className="bg-secondary rounded-xl shadow-lg p-4 w-full flex items-center justify-center text-white text-center">
+            <h1>{item.name}</h1>
+          </Button>
+        </Link>
+      ))}
     </div>
   );
 }

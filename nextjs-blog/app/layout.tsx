@@ -22,19 +22,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${tomorrow.variable} antialiased`}>
-         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-          <Navbar />
-            <main className="max-w-2xl mx-auto px-4">
-              {children}
-            </main>
-        </ThemeProvider>
-      </body>
-    </html>
+  <body className={`${tomorrow.variable} antialiased`}>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <div className="max-w-2xl w-full mx-auto px-4">
+        <Navbar />
+
+        <main className="py-5">
+          {children}
+        </main>
+      </div>
+    </ThemeProvider>
+  </body>
+</html>
   );
 }

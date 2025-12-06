@@ -27,28 +27,28 @@ export default async function Home() {
   return (
     <>
       <div className="mt-5 space-y-5 flex flex-col items-center">
-        <Card className="w-full max-w-xl flex flex-col overflow-hidden shadow-md">
+        <Card className="w-full max-w-2xl flex flex-col overflow-hidden shadow-md">
           <CardContent className="flex flex-row items-center justify-between">
             <Image
-              height={100}
-              width={100}
+              height={90}
+              width={90}
               src={shopImage}
               alt="shop image 1"
-              className="rounded"
+              className="rounded levitateOne"
             />
             <Image
-              height={100}
-              width={100}
+              height={90}
+              width={90}
               src={shopImage2}
               alt="shop image 2"
-              className="rounded"
+              className="rounded levitateTwo"
             />
             <Image
-              height={100}
-              width={100}
+              height={90}
+              width={90}
               src={shopImage3}
               alt="shop image 3"
-              className="rounded"
+              className="rounded levitateOne"
             />
             <Link href="/shop">
               <Button>Visit Store</Button>
@@ -59,7 +59,7 @@ export default async function Home() {
         {data.map((post, idx) => (
           <Card
             key={idx}
-            className="w-full max-w-xl flex flex-col overflow-hidden shadow-md"
+            className="w-full max-w-2xl flex flex-col overflow-hidden shadow-md"
           >
             <div className="w-full flex justify-center">
               <Image

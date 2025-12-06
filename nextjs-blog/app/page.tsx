@@ -12,10 +12,10 @@ export default async function Home() {
   const videoUrl = fileUrl(data?.heroVideo);
 
   return (
-    <div className="grid grid-cols-1 mt-5 gap-5">
-      <div className="bg-primary w-full h-15 rounded-xl shadow-lg"></div>
+    <div className="grid grid-cols-1 gap-5">
+      <div className="bg-primary w-full h-4 mb-4 rounded-xl shadow-lg"></div>
       <VideoPlayer videoUrl={videoUrl} />
-      <div className="bg-primary w-full h-15 rounded-xl shadow-lg"></div>
+      <div className="bg-primary w-full h-4 mt-4 rounded-xl shadow-lg"></div>
     </div>
   );
 }
