@@ -25,6 +25,14 @@ export default defineType({
     }),
 
     defineField({
+      name: 'aiPrompt',
+      title: 'AI Auto-Prompt',
+      type: 'text',
+      description: 'Automatically generated from name + description. Used for image generation.',
+      readOnly: true,
+    }),
+
+    defineField({
       name: 'price',
       title: 'Price',
       type: 'number',
@@ -45,34 +53,35 @@ export default defineType({
       validation: (rule) => rule.required().max(30),
     }),
 
-     defineField({
+    defineField({
       name: 'images',
       title: 'Images',
       type: 'array',
       of: [
         {
-          name: 'imageWithPrompt',
-          title: 'Image with AI Prompt',
           type: 'object',
           fields: [
             defineField({
-              name: 'prompt',
-              title: 'AI Image Prompt',
-              type: 'text',
-            }),
-            defineField({
               name: 'image',
-              title: 'Image',
+              title: 'Generated Image',
               type: 'image',
+              fields: [
+                defineField({
+                  name: 'prompt',
+                  title: 'Image Prompt',
+                  type: 'text',
+                  rows: 2,
+                }),
+              ],
               options: {
                 aiAssist: {
-                  imageInstructionField: 'prompt',
+                  imageInstructionField: 'prompt', 
                 },
               },
             }),
             defineField({
               name: 'alt',
-              title: 'Alternative Text',
+              title: 'Alt Text',
               type: 'string',
             }),
           ],
