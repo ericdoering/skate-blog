@@ -60,14 +60,14 @@ export default async function ShopItemPage({
       </div>
 
       <div className="mt-6 flex justify-center">
-        <Button disabled={!data.available}>
+        <Button className="cursor-pointer" disabled={!data.available}>
           {data.available ? "Add to Cart" : "Out of Stock"}
         </Button>
       </div>
 
       <div className="mt-10 flex justify-center">
         <Link href="/shop">
-          <Button variant="secondary">Back to Shop</Button>
+          <Button className="cursor-pointer" variant="secondary">Back to Shop</Button>
         </Link>
       </div>
     </div>

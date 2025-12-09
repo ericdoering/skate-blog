@@ -47,7 +47,7 @@ return (
               {item.name}
             </h2>
             <Link href={`/shop/${item._id}`} className="w-full mt-6">
-              <button className="w-full bg-primary hover:bg-black text-white font-semibold py-3 rounded-lg transition-all duration-200">
+              <button className="cursor-pointer w-full bg-primary hover:bg-black text-white font-semibold py-3 rounded-lg transition-all duration-200">
                 View Item
               </button>
             </Link>
@@ -57,7 +57,7 @@ return (
     </div>
     <div className="mt-16 flex justify-center">
       <Link href="/home">
-        <button className="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200">
+        <button className="cursor-pointer bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200">
           Return to Homepage
         </button>
       </Link>

@@ -51,7 +51,7 @@ export default async function Home() {
               className="rounded levitateOne"
             />
             <Link href="/shop">
-              <Button>Visit Store</Button>
+              <Button className="cursor-pointer">Visit Store</Button>
             </Link>
           </CardContent>
         </Card>
