@@ -67,7 +67,7 @@ export default async function ShopItemPage({
 
       <div className="mt-10 flex justify-center">
         <Link href="/shop">
-          <Button className="cursor-pointer" variant="secondary">Back to Shop</Button>
+          <Button className="cursor-pointer">Back to Shop</Button>
         </Link>
       </div>
     </div>

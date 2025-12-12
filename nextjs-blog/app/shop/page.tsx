@@ -57,9 +57,9 @@ return (
     </div>
     <div className="mt-16 flex justify-center">
       <Link href="/home">
-        <button className="cursor-pointer bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200">
+        <Button className="cursor-pointer font-semibold py-3 px-6 rounded-lg transition-all duration-200">
           Return to Homepage
-        </button>
+        </Button>
       </Link>
     </div>
   </div>
