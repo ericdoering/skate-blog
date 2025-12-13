@@ -29,10 +29,10 @@ export default function RootLayout({
       enableSystem
       disableTransitionOnChange
     >
-      <div className="max-w-2xl w-full mx-auto px-4">
+      <div className="max-w-4xl w-full mx-auto px-4">
         <Navbar />
 
-        <main className="py-5">
+        <main className="pb-5">
           {children}
         </main>
       </div>
