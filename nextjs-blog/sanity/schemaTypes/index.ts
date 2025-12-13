@@ -1,5 +1,5 @@
 import blog from "./blog";
-import landingPage from "./landingPage";
+import globalAssets from "./globalAssets";
 import shopItems from "./shopItems";
 
-export const schemaTypes = [blog, landingPage, shopItems]
+export const schemaTypes = [blog, globalAssets, shopItems]
