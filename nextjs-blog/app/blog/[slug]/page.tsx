@@ -47,7 +47,7 @@ export default async function BlogArticle({
         <PortableText value={data.content} />
       </div>
       <div className="my-8">
-        <Button className="w-full mt-5" asChild>
+        <Button className="w-full mt-5 hover:bg-orange-800" asChild>
             <Link href={`/home`}>Return to Homepage</Link>
         </Button>
       </div>

@@ -45,7 +45,7 @@ export default async function Home() {
           ))}
 
           <Link href="/shop">
-            <Button className="cursor-pointer">Visit Store</Button>
+            <Button className="cursor-pointer hover:bg-orange-800">Visit Store</Button>
           </Link>
         </CardContent>
       </Card>
@@ -64,7 +64,7 @@ export default async function Home() {
           <CardContent className="p-5 flex flex-col">
             <h3 className="text-lg font-bold line-clamp-2">{post.title}</h3>
             <p className="text-sm mt-3 line-clamp-3">{post.smallDescription}</p>
-            <Button className="w-full mt-5" asChild>
+            <Button className="w-full mt-5 hover:bg-orange-800" asChild>
               <Link href={`/blog/${post.currentSlug}`}>Read More</Link>
             </Button>
           </CardContent>
