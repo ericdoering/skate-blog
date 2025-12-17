@@ -30,9 +30,9 @@ return (
         return (
           <div
             key={item._id}
-            className="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col items-center p-6"
+            className="bg-black shadow-lg rounded-xl overflow-hidden flex flex-col items-center p-6"
           >
-            <div className="w-full h-80 flex items-center justify-center bg-black rounded-lg">
+            <div className="w-full h-60 flex items-center justify-center bg-black rounded-lg">
               {imageUrl && (
                 <Image
                   src={imageUrl}
@@ -43,7 +43,7 @@ return (
                 />
               )}
             </div>
-            <h2 className="mt-6 text-2xl font-bold text-gray-900 text-center">
+            <h2 className="mt-2 text-2xl font-bold text-gray-100 text-center">
               {item.name}
             </h2>
             <Link href={`/shop/${item._id}`} className="w-full mt-6">
