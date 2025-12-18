@@ -25,14 +25,6 @@ export default defineType({
     }),
 
     defineField({
-      name: 'aiPrompt',
-      title: 'AI Auto-Prompt',
-      type: 'text',
-      description: 'Automatically generated from name + description. Used for image generation.',
-      readOnly: true,
-    }),
-
-    defineField({
       name: 'price',
       title: 'Price',
       type: 'number',

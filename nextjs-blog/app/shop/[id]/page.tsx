@@ -26,9 +26,10 @@ async function getData(id: string) {
 export default async function ShopItemPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const data = await getData(params?.id);
+  const { id } = await params;
+  const data = await getData(id);
 
   if (!data) {
     return <div className="mt-20 text-center text-muted-foreground">Item not found.</div>;
