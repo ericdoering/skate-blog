@@ -3,8 +3,17 @@ import { client } from "../../app/lib/sanity";
 import Link from "next/link";
 import Image from "next/image";
 import { urlForImage } from "@/lib/urlForImage";
+import { SearchBar } from "@/components/ui/searchBar";
+import { Suspense } from "react";
 
-export default async function Shop() {
+interface ShopProps {
+  searchParams: Promise<{ q?: string }>;
+}
+
+export default async function Shop({ searchParams }: ShopProps) {
+  const params = await searchParams;
+  const searchQuery = params.q || "";
+
   const items = await client.fetch(`
     *[_type == "shopItem"]{
       name,
@@ -17,11 +26,30 @@ export default async function Shop() {
     }
   `);
 
+  const searchedItems = searchQuery
+    ? await client.fetch(`
+        *[_type == "shopItem" && name match "*${searchQuery}*"]{
+          name,
+          _id,
+          images[]{
+            alt,
+            image,
+            "assetRef": image.asset._ref
+          }
+        }
+      `)
+    : [];
+
+  const displayItems = searchQuery ? searchedItems : items;
+
 return (
   <div className="px-6 py-10">
     <h1 className="text-5xl font-bold text-center mb-12">Shop</h1>
+    <Suspense fallback={<div className="flex justify-center w-full mb-10"><input type="text" placeholder="Search for a product" className="w-full max-w-xs h-9 px-4 py-2 rounded-md bg-background border border-input text-sm text-black" disabled /></div>}>
+      <SearchBar />
+    </Suspense>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-      {items.map((item) => {
+      {displayItems.map((item) => {
         const firstImage = item.images?.[0];
         const imageUrl = firstImage
           ? urlForImage(firstImage.image).width(600).url()
