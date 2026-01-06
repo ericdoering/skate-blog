@@ -1,5 +1,6 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
+import {presentationTool} from 'sanity/presentation'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {assist} from '@sanity/assist'
@@ -32,9 +33,17 @@ export default defineConfig({
 
     visionTool(),
     assist(),
+    presentationTool({
+      previewUrl: {
+        previewMode: {
+          enable: '/api/draft-mode/enable',
+        },
+      },
+    }),
   ],
 
   schema: {
     types: schemaTypes,
   },
 })
+
